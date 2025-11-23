@@ -1,0 +1,304 @@
+/* ----------------------------------- */
+/* 1. ROOT VARIABLES, BASE STYLES & RELATIVE UNITS */
+/* ----------------------------------- */
+:root {
+    /* Define color theme */
+    --primary-color: #dab825; /* Indigo/Blue */
+    --secondary-color: #a031ea; /* Pink/Accent */
+    --text-color: #333;
+    --bg-light: #ccd2cd;
+    --bg-dark: #2c3e50;
+    
+    /* Base font size for 'rem' calculation */
+    font-size: 16px; 
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-color);
+    line-height: 1.6;
+    background-color: var(--bg-light);
+    /* Use relative font size */
+    font-size: 1rem; 
+}
+
+h2 {
+    font-size: 2.5rem; /* rem unit */
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+    text-align: center;
+}
+
+section {
+    padding: 5vh 10vw; /* vh/vw units for vertical/horizontal padding */
+    min-height: 80vh;
+}
+
+/* ----------------------------------- */
+/* 2. FLEXBOX LAYOUT (Header & Hero) */
+/* ----------------------------------- */
+
+.main-header {
+    background-color: var(--bg-dark);
+    padding: 1rem 5vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    color: #fff;
+    font-size: 1.8rem;
+}
+
+.main-nav a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 1.5rem;
+    /* Transition for smooth hover effect */
+    transition: color 0.3s ease, transform 0.3s ease; 
+}
+
+.main-nav a:hover {
+    color: var(--secondary-color);
+    /* CSS Transform on hover */
+    transform: scale(1.1); 
+}
+
+.hero-section {
+    background-color: var(--bg-light);
+    display: flex;
+    /* Flexbox usage for layout */
+    align-items: center;
+    justify-content: space-around;
+    min-height: 90vh;
+}
+
+.hero-content {
+    max-width: 50%;
+}
+
+.name {
+    font-size: 4rem;
+    color: var(--bg-dark);
+}
+
+.role {
+    font-size: 3rem;
+    font-weight: 600;
+    margin: 0.5rem 0 1rem;
+    /* Keyframe animation applied here */
+    animation: color-change 4s infinite alternate; 
+}
+
+.hero-image img {
+    width: 20rem; 
+    height: 20rem;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 0.5rem solid var(--primary-color);
+    transform: rotate(-3deg); 
+    transition: transform 0.5s ease;
+}
+
+.hero-image img:hover {
+    transform: rotate(0deg) scale(1.05);
+}
+
+/* ----------------------------------- */
+/* 3. CSS GRID LAYOUT (Skills & Projects) */
+/* ----------------------------------- */
+.skills-grid {
+    display: grid;
+    /* CSS Grid usage for structure */
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr)); 
+    gap: 1.5rem;
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+.skill-card {
+    background-color: #fff;
+    padding: 1.5rem;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    font-weight: 600;
+    color: var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+.skill-card:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+    transform: translateY(-5px) scale(1.02);
+    /* Transform effect */
+    box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+}
+
+.projects-grid {
+    display: grid;
+    /* CSS Grid usage */
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr)); 
+    gap: 2rem;
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+.project-card {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.project-card:hover {
+    border-left: 5px solid var(--secondary-color);
+    transform: scale(1.03);
+    /* Transform effect */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+/* ----------------------------------- */
+/* 4. KEYFRAME ANIMATION DEFINITION */
+/* ----------------------------------- */
+@keyframes color-change {
+    0% {
+        color: var(--primary-color);
+    }
+    50% {
+        color: var(--secondary-color);
+        /* Highlight color */
+    }
+    100% {
+        color: var(--primary-color);
+    }
+}
+
+/* ----------------------------------- */
+/* 5. CONTACT FORM & FOOTER */
+/* ----------------------------------- */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 40rem;
+    margin: 0 auto;
+    gap: 1rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.submit-btn {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    /* Transition for button hover */
+}
+
+.submit-btn:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+    /* Transform effect */
+}
+
+footer {
+    background-color: var(--bg-dark);
+    color: #aaa;
+    text-align: center;
+    padding: 2rem 0;
+}
+
+footer a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: var(--secondary-color);
+}
+
+/* ----------------------------------- */
+/* 6. MEDIA QUERIES (RESPONSIVENESS) */
+/* ----------------------------------- */
+
+/* Tablet and smaller screens (Max-width: 768px) */
+@media (max-width: 768px) {
+    
+    :root {
+        font-size: 14px; /* Scaling down base font size for tablets */
+    }
+    
+    .hero-section {
+        flex-direction: column;
+        /* Stack hero image and text */
+        text-align: center;
+        min-height: auto;
+    }
+
+    .hero-content {
+        max-width: 90%;
+        margin-bottom: 2rem;
+    }
+
+    .name {
+        font-size: 3.5rem;
+    }
+
+    .role {
+        font-size: 2.5rem;
+    }
+
+    .hero-image img {
+        width: 15rem;
+        height: 15rem;
+    }
+
+    .skills-grid,
+    .projects-grid {
+        grid-template-columns: 1fr;
+        /* Stack cards in a single column */
+        max-width: 95%;
+    }
+}
+
+/* Mobile-only screens (Max-width: 480px) */
+@media (max-width: 480px) {
+    /* Simple adjustment for very small screens */
+    .main-nav {
+        display: none;
+    }
+
+    .main-header {
+        justify-content: center;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+    
+    .name {
+        font-size: 3rem;
+    }
+}
